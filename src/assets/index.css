@@ -1,0 +1,104 @@
+#app {
+    height: 100vh;
+    display: flex;
+
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin: auto;
+}
+
+
+.main-layout {
+    height: 80vh;
+    border: 2px solid #26a69a ;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+}
+.aside {
+    
+    border-right:  2px solid #26a69a ;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    margin-right: 1em;  
+}
+.select select {
+    margin: 1em 0;
+    display: block;
+    width: 100%; 
+    padding: .75rem 2.5rem .75rem 1rem;
+    background: none;
+    border: 1px solid #ccc; 
+    border-radius: 25px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #444;
+}
+.select:after {
+    content: "";
+    display: block;
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: #000 transparent transparent transparent;
+    pointer-events: none;
+    position: relative;
+    top: -45%;
+    left: 91%;
+    width: 10px;
+    z-index: 1;
+    margin-top: -3px;
+}
+.aside__content {
+    height: 100%;
+    border-top: 1px solid gray ;
+    border-bottom: 1px solid gray ;
+    overflow-y: scroll;
+}
+.aside__add-to-do-list {
+    margin-bottom: 0;
+}
+
+.to-do {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0 0 0 10px;
+    border-left: 1px solid #26a69a;
+}
+.to-do__title {
+    font-size: 2.5em;
+    margin: 0;
+    text-align: center;
+}
+.to-do__content {
+    overflow-y: scroll;
+    height: 100%;
+}
+.to-do__control {
+    height: 5em;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    border-top: 1px solid gray;
+}
+.md {
+    margin: auto;
+    display: flex;
+}
+.input-to-do {
+    width: 300px;
+}
+.app-content {
+    display: flex; 
+    width: 100%;
+    height: 100vh;
+}
