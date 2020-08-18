@@ -10,9 +10,10 @@
         </div>
 
         <ul class="aside__content">
-
+          <ToDoList  v-bind:key="title" v-bind:todoLlist="title"  v-for="title in todoLlist" v-on:pick-list="pickList" />
         </ul>
         <div class="aside__add-to-do-list row">
+           <AddTodo v-on:add-todo="addTodo"/>
 
         </div>
     </aside>
@@ -50,14 +51,29 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
+import ToDoList from '@/components/ToDoList'
+import AddTodo from '@/components/AddTodo'
 export default {
   name: 'Home',
+  data () {
+    return {
+      todoLlist: []
+    }
+  },
   components: {
-
+    ToDoList, AddTodo
+  },
+  methods: {
+    addTodo (newTodo) {
+      this.todoLlist.push(newTodo)
+      console.log(this.todoLlist)
+    },
+    pickList (id) {
+    }
   }
 }
+
 </script>
 <style >
 li {
