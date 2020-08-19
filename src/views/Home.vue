@@ -1,23 +1,23 @@
 <template>
   <div class=" container main-layout row z-depth-5">
-
-    <section class="to-do col s8">
-
-    </section>
-
+    <Collection/>
+    <ToDo/>
   </div>
 </template>
 
 <script>
+import Collection from '@/components/Collection'
+import ToDo from '@/components/ToDo'
 
 export default {
+  name: 'Home',
   data () {
     return {
-
+      dbCollection: {}
     }
   },
   components: {
-
+    Collection, ToDo
   },
   methods: {
 
