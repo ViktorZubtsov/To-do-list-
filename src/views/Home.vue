@@ -1,80 +1,31 @@
 <template>
   <div class=" container main-layout row z-depth-5">
-    <aside class="aside col s4 ">
-        <div class="select">
-            <select>
-                <option value="Все">Все</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-        </div>
-
-        <ul class="aside__content">
-          <ToDoList  v-bind:key="title" v-bind:todoLlist="title"  v-for="title in todoLlist" v-on:pick-list="pickList" />
-        </ul>
-        <div class="aside__add-to-do-list row">
-           <AddTodo v-on:add-todo="addTodo"/>
-
-        </div>
-    </aside>
 
     <section class="to-do col s8">
-        <h1 class="to-do__title">
-        </h1>
-        <div class="to-do__content">
 
-        </div>
-        <div class="to-do__control">
-            <div class="row input-to-do ">
-                <div class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input type="text" class="autocomplete">
-                      <label for="autocomplete-input">Введите дело</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <p class="md">
-                <label>
-                  <input type="checkbox" />
-                  <span>Срочное</span>
-                </label>
-              </p>
-              <button class="btn waves-effect waves-light md" type="submit" name="action">Добавить дело
-              </button>
-
-        </div>
     </section>
+
   </div>
 </template>
 
 <script>
 
-import ToDoList from '@/components/ToDoList'
-import AddTodo from '@/components/AddTodo'
 export default {
-  name: 'Home',
   data () {
     return {
-      todoLlist: []
+
     }
   },
   components: {
-    ToDoList, AddTodo
+
   },
   methods: {
-    addTodo (newTodo) {
-      this.todoLlist.push(newTodo)
-      console.log(this.todoLlist)
-    },
-    pickList (id) {
-    }
-  }
-}
 
+  }
+
+}
 </script>
+
 <style >
 li {
   margin: 10px 1em;

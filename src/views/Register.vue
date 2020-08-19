@@ -28,12 +28,6 @@
         <label for="name">Имя</label>
         <small class="helper-text invalid">Name</small>
       </div>
-      <p>
-        <label>
-          <input type="checkbox" />
-          <span>С правилами согласен</span>
-        </label>
-      </p>
     </div>
     <div class="card-action">
       <div>
