@@ -1,18 +1,21 @@
 <template>
   <div class=" container main-layout row z-depth-5">
-    <Collection :dbCollection='dbCollection' :mainTodo='mainTodo'
-    @get-List='getList'
-    @pushModal-Title='pushModalTitle'
-    @del-collection='delCollection'
+    <Collection
+      :dbCollection='dbCollection'
+      :mainTodo='mainTodo'
+      @get-List='getList'
+      @pushModal-Title='pushModalTitle'
+      @del-collection='delCollection'
      />
-    <ToDo :mainTodo='mainTodo'
+    <ToDo
+      :mainTodo='mainTodo'
     />
     <Modal
-    :modalTitle='mainTodo.modalTitle'
-    :visibleModal='mainTodo.visibleModal'
-    :modalQuestion='mainTodo.modalQuestion'
-    @modal-close='modalClose'
-    @delete-item='deleteItem'
+      :modalTitle='mainTodo.modalTitle'
+      :visibleModal='mainTodo.visibleModal'
+      :modalQuestion='mainTodo.modalQuestion'
+      @modal-close='modalClose'
+      @delete-item='deleteItem'
     />
   </div>
 </template>
@@ -54,7 +57,6 @@ export default {
     deleteItem () {
       this.dbCollection = this.dbCollection.filter(t => t.id !== this.mainTodo.id)
       this.mainTodo = { visibleModal:false }
-      // console.log(this.dbCollection = this.dbCollection.filter(t => t.id == this.mainTodo.id))
 
     }
 
