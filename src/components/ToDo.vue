@@ -1,8 +1,11 @@
 <template>
   <section class="to-do col s8">
-    <h1 class="to-do__title"></h1>
+    <h1 class="to-do__title">{{mainTodo.title}}</h1>
     <ul class="to-do__content">
-      <ToDoItem/>
+      <ToDoItem
+      :des='des'
+      v-for="des in mainTodo.desc" :key="des.id"
+      />
     </ul>
     <AddToDo/>
   </section>
@@ -17,6 +20,11 @@ export default {
   name: 'ToDo',
   components: {
     AddToDo, ToDoItem
+  },
+  props: {
+    mainTodo: {
+      type: Object
+    }
   }
 }
 </script>

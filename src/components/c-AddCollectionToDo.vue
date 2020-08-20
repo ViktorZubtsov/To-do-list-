@@ -2,7 +2,7 @@
   <form class="col s12" @submit.prevent="onSubmit">
     <div class="row">
       <div class="input-field col s10">
-        <input  class="autocomplete" type="text"
+        <input  class="autocomplete" type="text"  v-model="title"
         >
         <label for="autocomplete-input">Введите название списка</label>
         <button class="waves-effect waves-light btn" type="submit">Добавить список</button>
@@ -13,26 +13,25 @@
 
 <script>
 export default {
-  name: 'AddCollectionToDo'
-  // data () {
-  //   return {
-  //     title: ''
-  //   }
-  // },
-  // methods: {
-  //   onSubmit () {
-  //     if (this.title.trim()) {
-  //       const newTodo = {
-  //         id: Date.now(),
-  //         title: this.title,
-  //         desc: { todo: '', completed: false }
-  //       }
-  //       this.$emit('add-todo', newTodo)
-  //       console.log(newTodo)
-  //       this.title = ''
-  //     }
-  //   }
-  // }
+  name: 'AddCollectionToDo',
+  data () {
+    return {
+      title: ''
+    }
+  },
+  methods: {
+    onSubmit () {
+      if (this.title.trim()) {
+        const newTodo = {
+          id: Date.now(),
+          title: this.title,
+          desc: [ {todo: '55', completed: false, prior: false}, {todo: '55', completed: false, prior: false} ]
+        }
+        this.$emit('add-todo', newTodo)
+        this.title = ''
+      }
+    }
+  }
 }
 </script>
 

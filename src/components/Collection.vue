@@ -1,14 +1,14 @@
 <template>
   <aside class="aside col s4 ">
     <SortCollection/>
-
     <ul class="aside__content">
-      <CollectionToDo/>
-      <!-- <AsideTodo v-bind:key="title" v-bind:todosAside="title"  v-for="title in todosAside"  v-on:open-todo="openTodo"  v-on:remove-todos="removeItem" /> -->
+      <CollectionToDo :collectionList='collectionList'
+      v-for="collectionList in dbCollection" :key="collectionList.id"
+      v-on:open-collection="openCollection"
+      />
     </ul>
     <div class="aside__add-to-do-list row">
-      <AddCollectionToDo/>
-      <!-- <AddAsideTodo @add-todo="addTodo"/> -->
+      <AddCollectionToDo @add-todo="addTodo"/>
     </div>
   </aside>
 </template>
@@ -22,6 +22,30 @@ export default {
   name: 'Collection',
   components: {
     SortCollection, CollectionToDo, AddCollectionToDo
+  },
+  props: {
+    dbCollection: {
+      type: Array
+    },
+    mainTodo: {}
+  },
+  data () {
+    return {
+
+    }
+  },
+  methods: {
+    openCollection (collectionList) {
+      const list = {
+        title: collectionList.title,
+        id: collectionList.id,
+        desc: collectionList.desc
+      }
+      this.$emit('get-List', list)
+    },
+    addTodo (todo) {
+      this.dbCollection.push(todo)
+    },
   }
 }
 </script>

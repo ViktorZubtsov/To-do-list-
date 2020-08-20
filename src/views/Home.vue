@@ -1,7 +1,7 @@
 <template>
   <div class=" container main-layout row z-depth-5">
-    <Collection/>
-    <ToDo/>
+    <Collection :dbCollection='dbCollection' :mainTodo='mainTodo' @get-List='getList' />
+    <ToDo :mainTodo='mainTodo'/>
   </div>
 </template>
 
@@ -13,14 +13,20 @@ export default {
   name: 'Home',
   data () {
     return {
-      dbCollection: {}
+      dbCollection: [
+      ],
+      mainTodo: {
+
+      }
     }
   },
   components: {
     Collection, ToDo
   },
   methods: {
-
+    getList(list ){
+      this.mainTodo = list
+    }
   }
 
 }
