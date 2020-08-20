@@ -16,7 +16,9 @@ export default {
   name: 'AddCollectionToDo',
   data () {
     return {
-      title: ''
+      title: '',
+      visibleModal: false,
+      modalTitle: ''
     }
   },
   methods: {
@@ -25,10 +27,13 @@ export default {
         const newTodo = {
           id: Date.now(),
           title: this.title,
+          visibleModal: this.visibleModal,
+          modalTitle: this.title,
           desc: [ {todo: '55', completed: false, prior: false}, {todo: '55', completed: false, prior: false} ]
         }
         this.$emit('add-todo', newTodo)
         this.title = ''
+        
       }
     }
   }

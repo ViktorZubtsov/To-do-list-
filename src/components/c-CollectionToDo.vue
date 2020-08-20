@@ -3,7 +3,7 @@
     <span class="span"  v-on:click="$emit('open-collection', collectionList)" >
       {{collectionList.title}}
     </span>
-    <button class="waves-effect waves-light btn" >&times;</button>
+    <button class="waves-effect waves-light btn" v-on:click="$emit('delet-collection', collectionList)" >&times;</button>
   </li>
 </template>
 
@@ -14,6 +14,9 @@ export default {
     collectionList: {
       type: Object
     }
+  },
+  methods: {
+
   }
 
 }

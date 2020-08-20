@@ -5,6 +5,7 @@
       <CollectionToDo :collectionList='collectionList'
       v-for="collectionList in dbCollection" :key="collectionList.id"
       v-on:open-collection="openCollection"
+      v-on:delet-collection='deletCollection'
       />
     </ul>
     <div class="aside__add-to-do-list row">
@@ -44,8 +45,19 @@ export default {
       this.$emit('get-List', list)
     },
     addTodo (todo) {
+      this.mainTodo.visibleModal = true
       this.dbCollection.push(todo)
+      console.log(todo)
+      this.$emit('pushModal-Title', todo.modalTitle)
     },
+    deletCollection(collectionList) {
+      const newcollectionList = {
+        visibleModal:true,
+        modalQuestion: collectionList.modalTitle,
+        id: collectionList.id
+      }
+      this.$emit('del-collection', newcollectionList)
+    }
   }
 }
 </script>
