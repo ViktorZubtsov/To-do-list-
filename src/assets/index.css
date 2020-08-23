@@ -102,3 +102,45 @@
     width: 100%;
     height: 100vh;
 }
+.todos {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+  .todos >  span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  form {
+    display: flex;
+  }
+  input {
+    width: 400px;
+    z-index: 1000;
+  }
+ label {
+  z-index: -1;
+}
+.status_completed
+{
+    background-color: #69f0ae;
+}
+
+.status_not-completed
+{
+    background-color: #fff9c4  ;
+}
+
+.status_empty {
+    background-color: #f3e5f5
+}
+.important{
+    width: 20px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red;
+
+}

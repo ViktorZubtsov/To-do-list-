@@ -1,75 +1,58 @@
 <template>
   <div class=" container main-layout row z-depth-5">
-    <Collection
-      :dbCollection='dbCollection'
-      :mainTodo='mainTodo'
-      @get-List='getList'
-      @pushModal-Title='pushModalTitle'
-      @del-collection='delCollection'
-     />
-    <ToDo
-      :mainTodo='mainTodo'
-    />
-    <Modal
-      :modalTitle='mainTodo.modalTitle'
-      :visibleModal='mainTodo.visibleModal'
-      :modalQuestion='mainTodo.modalQuestion'
-      @modal-close='modalClose'
-      @delete-item='deleteItem'
-    />
+        <Collection class="v-main-wrapper__item"
+            :dbCollection="dbCollection"
+            v-on:listPicked="openList"
+            v-on:listRemoved="deleteList"
+        />
+        <ToDo :list="mainTodo"/>
+        <Modal :modalInfo="this.$store.getters.getcurModal"/>
   </div>
 </template>
 
 <script>
-import Collection from '@/components/Collection'
-import ToDo from '@/components/ToDo'
-import Modal from '@/components/Modal'
+
+import Modal from "@/components/Modal"
+import Collection from "@/components/Collection"
+import ToDo from "@/components/ToDo.vue"
 
 export default {
-  name: 'Home',
-  data () {
-    return {
-      dbCollection: [
-      ],
-      mainTodo: {
-        visibleModal: false,
-        modalTitle: ''
-      }
+    name: "Home",
+    components: {
+        Modal,
+        Collection,
+        ToDo
+    },
+    data () {
+        return {
+            dbCollection: [],
+            mainTodo: {}
+        }
+    },
+    methods: {
+        openList (list){
+            this.mainTodo.ismainTodo = false;
+            list.ismainTodo = true;
+            this.mainTodo = list;
+        },
+        deleteList (listTitle){
+            let list = this.dbCollection.find((list) => {return list.title == listTitle});
+            if (list.ismainTodo) this.mainTodo = {};
+            this.dbCollection = this.dbCollection.filter((list) => {return list.title != listTitle});
+        }
     }
-  },
-  components: {
-    Collection, ToDo, Modal
-  },
-  methods: {
-    getList(list ){
-      this.mainTodo = list
-    },
-    modalClose(mainTodo) {
-      this.mainTodo =  {visibleModal:false}
-
-    },
-    pushModalTitle (todo) {
-       this.mainTodo.modalTitle = todo
-    },
-    delCollection (newcollectionList) {
-      this.mainTodo = newcollectionList
-    },
-    deleteItem () {
-      this.dbCollection = this.dbCollection.filter(t => t.id !== this.mainTodo.id)
-      this.mainTodo = { visibleModal:false }
-
-    }
-
-
-  }
-
 }
 </script>
 
-<style >
+<style>
+
 li {
   margin: 10px 1em;
-  padding: 0 5px;
+  padding: 0;
   border-radius: 4px;
+}
+a{
+    cursor: pointer;
+    color: black;
 }
 </style>

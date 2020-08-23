@@ -1,42 +1,23 @@
 <template>
-  <form class="col s12" @submit.prevent="onSubmit">
-    <div class="row">
-      <div class="input-field col s10">
-        <input  class="autocomplete" type="text"  v-model="title"
-        >
-        <label for="autocomplete-input">Введите название списка</label>
-        <button class="waves-effect waves-light btn" type="submit">Добавить список</button>
-      </div>
-    </div>
-  </form>
+    <form class="col s12"  @submit.prevent="$emit('add-todo', newList)">
+        <div class="row">
+        <div class="input-field col s10">
+            <input type="text" v-model="newList.title" class="autocomplete">
+            <label for="autocomplete-input">Введите название списка</label>
+            <button   type="submit" class="waves-effect waves-light btn" >Добавить список</button>
+        </div>
+        </div>
+    </form>
 </template>
 
 <script>
 export default {
-  name: 'AddCollectionToDo',
-  data () {
-    return {
-      title: '',
-      visibleModal: false,
-      modalTitle: ''
-    }
-  },
-  methods: {
-    onSubmit () {
-      if (this.title.trim()) {
-        const newTodo = {
-          id: Date.now(),
-          title: this.title,
-          visibleModal: this.visibleModal,
-          modalTitle: this.title,
-          desc: [ {todo: '55', completed: false, prior: false}, {todo: '55', completed: false, prior: false} ]
+    name: 'AddCollectionTodo',
+    props: {
+        newList: {
+            type: Object
         }
-        this.$emit('add-todo', newTodo)
-        this.title = ''
-        
-      }
     }
-  }
 }
 </script>
 

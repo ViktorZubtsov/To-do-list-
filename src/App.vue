@@ -7,6 +7,8 @@
 </template>
 
 <script>
+
+
 import MainLayout from '@/layouts/MainLayout'
 import EmptyLayout from '@/layouts/Empty'
 export default {
@@ -25,5 +27,16 @@ export default {
 <style lang="scss">
   @import '~materialize-css/dist/css/materialize.css';
   @import 'assets/index.css';
+
+
+
+
+
+
+
+
+
+
+
 
 </style>
