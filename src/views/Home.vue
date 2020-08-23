@@ -7,7 +7,10 @@
         />
         <ToDo :list="mainTodo"/>
         <Modal :modalInfo="this.$store.getters.getcurModal"/>
+
+      <a class="btn-floating pulse" v-on:click="logout()"><i class="large material-icons">exit_to_app</i></a>
   </div>
+
 </template>
 
 <script>
@@ -30,6 +33,10 @@ export default {
         }
     },
     methods: {
+        async logout () {
+          await this.$store.dispatch('logout')
+          this.$router.push('/login')
+        },
         openList (list){
             this.mainTodo.ismainTodo = false;
             list.ismainTodo = true;
@@ -54,5 +61,8 @@ li {
 a{
     cursor: pointer;
     color: black;
+}
+.pulse{
+  right: -4em;
 }
 </style>

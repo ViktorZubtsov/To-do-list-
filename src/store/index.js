@@ -8,6 +8,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+      error: null,
       curModal: {
           title: "empty",
           isChoice: false,
@@ -18,11 +19,7 @@ export default new Vuex.Store({
           isVisible: false
       }
     },
-    getters: {
-        getcurModal: state => {
-            return state.curModal;
-        }
-    },
+
     mutations:{
       setcurModal (state, payload) {
           state.curModal = {
@@ -35,8 +32,20 @@ export default new Vuex.Store({
               isVisible: true
           };
           state.curModal = Object.assign(state.curModal, payload);
+      },
+      setError(state, error) {
+        state.error = error
+      },
+      clearError(state) {
+        state.error = null
       }
     },
+    getters: {
+      getcurModal: state => {
+          return state.curModal;
+      },
+      error: s => s.error
+  },
     actions: {
 
     },
