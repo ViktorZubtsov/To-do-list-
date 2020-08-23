@@ -41,11 +41,11 @@ export default new Vuex.Store({
       }
     },
     getters: {
-      getcurModal: state => {
-          return state.curModal;
-      },
-      error: s => s.error
-  },
+        getcurModal: state => {
+            return state.curModal;
+        },
+        error: s => s.error
+    },
     actions: {
 
     },

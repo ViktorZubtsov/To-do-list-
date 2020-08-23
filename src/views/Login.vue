@@ -50,7 +50,7 @@
             type="submit"
         >
           Войти
-          <i class="material-icons right">></i>
+          <i class="material-icons right">person_pin</i>
         </button>
       </div>
 

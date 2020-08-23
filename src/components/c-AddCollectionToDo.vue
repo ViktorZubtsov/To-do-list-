@@ -1,10 +1,10 @@
 <template>
     <form class="col s12"  @submit.prevent="$emit('add-todo', newList)">
-        <div class="row">
-        <div class="input-field col s10">
+        <div class="row w100">
+        <div class="input-field in-add col s10">
             <input type="text" v-model="newList.title" class="autocomplete">
             <label for="autocomplete-input">Введите название списка</label>
-            <button   type="submit" class="waves-effect waves-light btn" >Добавить список</button>
+            <button   type="submit" class="waves-effect waves-light btn" ><i class="large material-icons">sms</i></button>
         </div>
         </div>
     </form>
@@ -31,5 +31,16 @@ export default {
   }
  label {
   z-index: -1;
+}
+.in-add{
+  display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.in-add > button {
+  margin-left: 14px;
+}
+.w100{
+  width: 100%;
 }
 </style>
