@@ -1,5 +1,5 @@
 # to-do-list
-
+## The development branch is "develop-alternative".
 ## Project setup
 ```
 npm install
